@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus chamados</title>
+  <link rel="stylesheet" href="meus-chamados.css">
+</head>
+
+
+
+<body>
+
+
+    <div class="sidebar">
+    <div class="menu-item active">
+        <a href="relatorio_pag_gs.html">
+            <div class="menu-icon">🏠</div>
+            <span>Inicial</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="meus-chamados.html">
+            <div class="menu-icon">💬</div>
+            <span>Meus chamados</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="novo-chamado.html">
+            <div class="menu-icon">➕</div>
+            <span>Novo chamado</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="relatório.html">
+            <div class="menu-icon">📊</div>
+            <span>Relatórios</span>
+        </a>
+    </div>
+
+</div>
+
+
+
+
+
+    <section id="quadrado">
+        <h1>Meus chamados</h1>
+        <h2>Lista de chamados registrados por você. Selecione um chamado para ver detalhes </h2>
+
+        <select id="Status">
+            <option value="">Todos</option>
+            <option value="aberto">aberto</option>
+            <option value="fechado">fechado</option>
+            <option value="pendente">pendente</option>
+        </select>
+
+        <select id="ti">
+            <option value="">Todos</option>
+            <option value="suporte">suporte</option>
+            <option value="infra">infra</option>
+            <option value="dev">dev</option>
+        </select>
+
+
+
+        <input id="numero" type="text" placeholder="Número">
+        <input id="pessoa" type="text" placeholder="Usuário">
+        <button id="filtrar" onclick="filtrar()">Filtrar</button>
+
+
+
+       <div class="tabela-container">
+            <table id="minhaTabela">
+
+                <th>Número</th>
+                <th>Titulo</th>
+                <th>Status</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Descrição</th>
+                <tbody>
+                    <tr>
+    <td>001</td>
+    <td>Chamado de Teste</td>
+    <td><span class="status aberto">Aberto</span></td>
+    <td>Carlos</td>
+    <td>Suporte</td>
+    <td id="descri">Problema com mouse não funciona</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>002</td>
+    <td>Outro Chamado</td>
+    <td><span class="status fechado">Fechado</span></td>
+    <td>Carlos</td>
+    <td>Infra</td>
+    <td id="descri">Problema no cadastro de chamado</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>003</td>
+    <td>Chamado Pendente</td>
+    <td><span class="status pendente">Pendente</span></td>
+    <td>Carlos</td>
+    <td>Dev</td>
+    <td id="descri">Erro ao gerar relatório</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>004</td>
+    <td>Chamado Pendente</td>
+    <td><span class="status aberto">Aberto</span></td>
+    <td>Beltrano</td>
+    <td>Infra</td>
+    <td id="descri">Erro ao gerar relatório (texto muito longo reduzido)</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>005</td>
+    <td>Chamado Pendente</td>
+    <td><span class="status fechado">Fechado</span></td>
+    <td>Beltrano</td>
+    <td>Infra</td>
+    <td id="descri">Erro ao gerar relatório</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>006</td>
+    <td>Chamado Pendente</td>
+    <td><span class="status aberto">Aberto</span></td>
+    <td>Beltrano</td>
+    <td>Dev</td>
+    <td id="descri">Erro ao gerar relatório</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>007</td>
+    <td>Chamado Pendente</td>
+    <td><span class="status aberto">Aberto</span></td>
+    <td>Beltrano</td>
+    <td>Dev</td>
+    <td id="descri">Erro ao gerar relatório</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>008</td>
+    <td>Falha no Sistema</td>
+    <td><span class="status pendente">Pendente</span></td>
+    <td>Ana</td>
+    <td>Suporte</td>
+    <td id="descri">Sistema não inicia corretamente</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>009</td>
+    <td>Erro de Impressão</td>
+    <td><span class="status aberto">Aberto</span></td>
+    <td>João</td>
+    <td>Infra</td>
+    <td id="descri">Impressora não reconhecida pelo sistema</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+
+<tr>
+    <td>010</td>
+    <td>Atualização Necessária</td>
+    <td><span class="status fechado">Fechado</span></td>
+    <td>Maria</td>
+    <td>Dev</td>
+    <td id="descri">Atualização de software concluída</td>
+    <td><a class="editar" href="Editar.html">Editar</a></td>
+</tr>
+                </tbody>
+        </div>
+
+    </section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var nivel = localStorage.getItem("nivel");
+  var usuarioLogado = localStorage.getItem("usuarioLogado");
+
+
+  var linhas = document.querySelectorAll("#minhaTabela tbody tr");
+
+  
+  if (!linhas.length) return;
+
+  if (nivel === "usuario") {
+    linhas.forEach(function (linha) {
+      var nomeChamado = linha.cells[3].textContent.trim().toLowerCase();
+
+      if (nomeChamado !== usuarioLogado.toLowerCase()) {
+        linha.style.display = "none";
+      }
+    });
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  function contarEguardar() {
+    const linhas = document.querySelectorAll("#minhaTabela tbody tr");
+    let abertos = 0, fechados = 0, pendentes = 0, total = 0;
+
+    linhas.forEach(linha => {
+      const span = linha.querySelector(".status");
+      if (!span) return;
+      const txt = span.textContent.trim().toLowerCase();
+      if (txt.includes("aberto")) abertos++;
+      else if (txt.includes("fechado")) fechados++;
+      else if (txt.includes("pendente")) pendentes++;
+      total++;
+    });
+
+
+    localStorage.setItem("ch_abertos", String(abertos));
+    localStorage.setItem("ch_fechados", String(fechados));
+    localStorage.setItem("ch_pendentes", String(pendentes));
+    localStorage.setItem("ch_total", String(total));
+
+    const e = id => document.getElementById(id);
+    if (e("total")) e("total").textContent = total;
+    if (e("abertos")) e("abertos").textContent = abertos;
+    if (e("fechados")) e("fechados").textContent = fechados;
+    if (e("pendentes")) e("pendentes").textContent = pendentes;
+  }
+
+
+  contarEguardar();
+
+
+});
+</script>
+
+
+
+
+    <script src="meus-chamados.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>

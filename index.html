@@ -3,75 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=7">
-  <title>Sistema de Chamados</title>
-  <link rel="stylesheet" href="/sytle Novo chamado.css">
+  <title>Login - Sistema de Chamados</title>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container">
+  <div class="container">
+    <div class="login-box">
+      <h2><span class="icon">🔑</span> Login</h2>
+      <input type="text" id="usuario" placeholder="Usuário">
+      <input type="password" id="senha" placeholder="Senha">
+      <button id="entrar">Entrar</button>
+      <p class="recuperar">Esqueceu sua senha? <a href="#">Clique aqui</a></p>
+    </div>
 
-      <!-- Menu da barra lateral -->
-      <aside class="sidebar">      
-          <a href="Página inicial.html" class="logo">
-            <img src="/Imagens/Logo.Proj_eixo1.png" alt="SupportEase Logo">
-          </a>
-        <ul>
-          <!-- Aqui é para fazer o <href/> para outras páginas-->
-          <li><a href="Página inicial.html">Home</a></li>
-          <li><a href="Novo chamado.html">Novo chamado</a></li>
-          <li><a href="Meus chamados.html">Meus chamados</a></li>
-          <li><a href="Tutoriais.html">Tutoriais / FAQ</a></li>
-        </ul>
-      </aside>
+    <div class="bemvindo">
+      <h1>Seja Bem-Vindo(a) ao Sistema de Chamados Corporativo</h1>
+      <p>A plataforma mais atualizada para o crescimento contínuo da sua produção!</p>
+    </div>
+  </div>
 
-      <!-- Conteúdo principal -->
-      <main class="content">
-            <header>
-              <p id="HeaderInfo"></p>
-            </header>
-        <section class="form-card">
-          <h1>Novo chamado</h1>
-          <p>Preencha os campos abaixo para criar um novo chamado.</p>
-
-          <form id="form-chamado">
-            <label>Categoria</label>
-            <select id="categoria" required>
-              <option>Selecione uma categoria</option>
-              <option>Hardware (problemas com equipamento)</option>
-              <option>Software (Problemas com programas)</option>
-              <option>Acessos (senhas, permissões)</option>
-              <option>Rede (Wi-fi, rede interna)</option>
-              <option>Outros</option>
-            </select>
-
-            <div class="row">
-              <div>
-                <label>Assunto</label>
-                <input type="text" id="assunto" placeholder="Digite um assunto" required>
-              </div>
-              <div>
-                <label>Área</label>
-                <select id="area" required>
-                  <option>Selecione a área</option>
-                  <option>Comercial</option>
-                  <option>Financeiro</option>
-                  <option>RH</option>
-                  <option>Marketing</option>
-                  <option>TI</option>
-                  <option>Administrativo</option>
-                  <option>Outros</option>
-                </select>
-              </div>
-            </div>
-
-            <label>Descrição</label>
-            <textarea id="descrição" placeholder="Digite uma descrição" required></textarea>
-
-            <button type="submit" class="button">Cadastrar</button>
-          </form>
-        </section>
-      </main>
-    </div> 
-</body>  
-
+  <script src="login.js"></script>
+</body>
 </html>
+

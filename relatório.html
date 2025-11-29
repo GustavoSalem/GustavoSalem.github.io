@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Chamados Corporativo</title>
+  <link rel="stylesheet" href="relatório.css">
+</head>
+<body>
+  <div class="container">
+   <div class="sidebar">
+    <div class="menu-item active">
+        <a href="relatorio_pag_gs.html">
+            <div class="menu-icon">🏠</div>
+            <span>Inicial</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="meus-chamados.html">
+            <div class="menu-icon">💬</div>
+            <span>Meus chamados</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="novo-chamado.html">
+            <div class="menu-icon">➕</div>
+            <span>Novo chamado</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="relatório.html">
+            <div class="menu-icon">📊</div>
+            <span>Relatórios</span>
+        </a>
+    </div>
+
+</div>
+    <main class="main-content">
+      <header class="header">
+        <div>
+          <h1>Sistema de Chamados Corporativo</h1>
+          <h2>Relatórios</h2>
+          <h3>Veja abaixo um resumo das atividades semanais e mensais dos seus chamados</p>
+        </div>
+     
+      </header>
+
+      <section class="cards">
+        <div class="card" id="card-semanal">
+          <div class="card-icon">📅</div>
+          <h3>Chamados recentes</h3>
+          <p>Resumo das últimas atividades registradas, mostrando os chamados mais recentes.</p>
+         <button onclick="alertaChamadosRecentes()">Ver detalhes</button>
+        </div>
+
+        <div class="card" id="card-mensal">
+          <div class="card-icon">📈</div>
+          <h3>Chamados finalizados</h3>
+          <p>Resumo dos chamados que foram concluídos ou resolvidos recentemente.</p>
+          <button onclick="alertaChamadosNovos()">ver detalhes</button>
+        </div>
+      </section>
+
+      <div id="detalhes" class="detalhes"></div>
+    </main>
+  </div>
+<script src="meus-chamados.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+

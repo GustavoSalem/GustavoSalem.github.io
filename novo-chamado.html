@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=7">
+  <title>Sistema de Chamados</title>
+  <link rel="stylesheet" href="novo-chamado.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Menu da barra lateral -->
+   <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Chamados Corporativo</title>
+  <link rel="stylesheet" href="relatório.css">
+</head>
+<body>
+  <div class="container">
+   <div class="sidebar">
+    <div class="menu-item active">
+        <a href="relatorio_pag_gs.html">
+            <div class="menu-icon">🏠</div>
+            <span>Inicial</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="meus-chamados.html">
+            <div class="menu-icon">💬</div>
+            <span>Meus chamados</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="novo-chamado.html">
+            <div class="menu-icon">➕</div>
+            <span>Novo chamado</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="relatório.html">
+            <div class="menu-icon">📊</div>
+            <span>Relatórios</span>
+        </a>
+    </div>
+</div>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+      <header>
+        <p id="HeaderInfo"></p>
+      </header>
+
+      <section class="form-card">
+        <h1>Novo chamado</h1>
+        <p>Preencha os campos abaixo para criar um novo chamado.</p>
+
+        <!-- QUADRO BRANCO -->
+        <div class="form-box">
+          
+          <label>Título</label>
+          <input type="text"  id="titulo" placeholder="Digite o título do chamado">
+
+          <label>Seu nome</label>
+          <input type="text" id="nome" placeholder="Digite seu nome">
+
+          <label>Categoria</label>
+          <select id="categoria">
+            <option value="">Selecione</option>
+            <option value="dev">Desenvolvimento</option>
+            <option value="infra">Infraestrutura</option>
+            <option value="suporte">Suporte</option>
+          </select>
+
+          <label>Descrição</label>
+          <textarea placeholder="Descreva o problema" id="descricao"></textarea>
+
+          <button class="btn-salvar">Salvar chamado</button>
+
+        </div>
+
+
+      </section>
+    </main>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const btnSalvar = document.querySelector(".btn-salvar");
+
+
+    function pegarMaiorID() {
+        const lista = JSON.parse(localStorage.getItem("chamados")) || [];
+        let maior = 0;
+
+    
+        lista.forEach(ch => {
+            const num = Number(ch.id);
+            if (num > maior) maior = num;
+        });
+
+      
+ function pegarMaiorID() {
+    const lista = JSON.parse(localStorage.getItem("chamados")) || [];
+    let maior = 0;
+
+    lista.forEach(ch => {
+        const num = Number(ch.id);
+        if (num > maior) maior = num;
+    });
+
+    return maior;
+}
+
+        return maior;
+    }
+
+    btnSalvar.addEventListener("click", () => {
+
+        const titulo = document.querySelector("#titulo").value;
+        const nome = document.querySelector("#nome").value;
+        const categoria = document.querySelector("#categoria").value;
+        const descricao = document.querySelector("#descricao").value;
+
+        if (!titulo || !nome || !categoria || !descricao) {
+            alert("Preencha todos os campos!");
+            return;
+        }
+
+        const lista = JSON.parse(localStorage.getItem("chamados")) || [];
+
+    
+        const id = pegarMaiorID() + 1;
+
+        const novoChamado = {
+            id: id,
+            titulo: titulo,
+            status: "aberto",
+            nome: nome,
+            categoria: categoria,
+            descricao: descricao
+        };
+
+        lista.push(novoChamado);
+        localStorage.setItem("chamados", JSON.stringify(lista));
+
+        alert("Chamado criado com sucesso!");
+        window.location.href = "meus-chamados.html";
+    });
+});
+</script>
+  
+</body>
+
+</html>
+
+
+
+
+

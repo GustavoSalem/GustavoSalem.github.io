@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk Zen</title>
+    <link rel="stylesheet" href="style_pao_gs.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="canvas_gs.js" defer></script> 
+
+
+</head>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="menu-item active">
+        <a href="relatorio_pag_gs.html">
+            <div class="menu-icon">🏠</div>
+            <span>Inicial</span>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="meus-chamados.html">
+            <div class="menu-icon">💬</div>
+            <span>Meus chamados</span>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="novo-chamado.html">
+            <div class="menu-icon">➕</div>
+            <span>Novo chamado</span>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="relatório.html">
+            <div class="menu-icon">📊</div>
+            <span>Relatórios</span>
+        </a>
+    </div>
+
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Relatorio Geral</h1>
+            <div class="user-info">
+                <div class="user-name"></div>
+                <div class="user-email"></div>
+            </div>
+        </div>
+
+
+
+        <div class="cards-container">
+            <div class="card green">
+                <div class="card-icon">✓</div>
+                <div class="card-title">Chamados<br>concluídos</div>
+                <div class="card-number">32</div>
+            </div>
+
+            <div class="card blue">
+                <div class="card-icon">💬</div>
+                <div class="card-title">Chamados<br>abertos hoje</div>
+                <div class="card-number">5</div>
+            </div>
+
+            <div class="card orange">
+                <div class="card-icon">⚙</div>
+                <div class="card-title">Chamados em<br>andamento</div>
+                <div class="card-number">12</div>
+            </div>
+
+            <div class="card red">
+                <div class="card-icon">❗</div>
+                <div class="card-title">Chamados<br>críticos/urgentes</div>
+                <div class="card-number">3</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title">CHAMADOS ÚLTIMOS 12 MESES</div>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+

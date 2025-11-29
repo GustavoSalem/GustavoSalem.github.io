@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Chamados - SupportEase</title>
+  <link rel="stylesheet" href="Editar.css">
+</head>
+
+<body>
+  <div class="container">
+
+<body>
+
+
+    <div class="sidebar">
+    <div class="menu-item active">
+        <a href="relatorio_pag_gs.html">
+            <div class="menu-icon">🏠</div>
+            <span>Inicial</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="meus-chamados.html">
+            <div class="menu-icon">💬</div>
+            <span>Meus chamados</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="Novo chamado.html">
+            <div class="menu-icon">➕</div>
+            <span>Novo chamado</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="relatório.html">
+            <div class="menu-icon">📊</div>
+            <span>Relatórios</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="tutoriais.html">
+            <div class="menu-icon">📖</div>
+            <span>Tutoriais / FAQ</span>
+        </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="suporte.html">
+            <div class="menu-icon">❓</div>
+            <span>Suporte</span>
+        </a>
+    </div>
+</div>
+
+</div>
+    <div id="alerta">
+      <div id="alerta-caixa">
+        <h1>Tem certeza que deseja alterar?</h1>
+        <input type="button" id="Sim" value="Sim">
+        <input type="button" id="Não" value="Não">
+      </div>
+    </div>
+
+    <main class="content" id="main">
+      <section class="input-group">
+        <h1>Editar chamado</h1>
+        <form id="formEditar">
+          <div class="input-group">
+            <label for="Nu">Número</label>
+            <input class="input" type="text" id="Nu" disabled>
+          </div>
+
+          <div class="input-group">
+            <label for="Ti">Título</label>
+            <input class="input" type="text" id="Ti" disabled>
+          </div>
+
+          <div class="input-group">
+            <label for="St">Status</label>
+            <input class="input" type="text" id="St" disabled>
+          </div>
+
+          <div class="input-group">
+            <label for="No">Nome</label>
+            <input class="input" type="text" id="No" disabled>
+          </div>
+
+          <div class="input-group">
+            <label for="Ca">Categoria</label>
+            <input class="input" type="text" id="Ca" disabled>
+          </div>
+
+          <div class="input-group">
+            <label for="De">Descrição</label>
+            <textarea class="input" id="De" rows="3" placeholder="Digite uma descrição" disabled></textarea>
+          </div>
+
+          <button type="button" id="btnSalvar" onclick="Salvar()">Salvar alterações</button>
+          <button type="button" id="btnAlterar" onclick="Alterar()">Alterar</button>
+          <a class="Voltar" href="meus-chamados.html">Voltar</a>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    let alterado = false;
+
+    function Alterar() {
+      const inputs = document.querySelectorAll('.input');
+      inputs.forEach(input => input.disabled = false);
+      alterado = true;
+    }
+
+    function Salvar() {
+      if (!alterado) {
+        alert("Clique em 'Alterar' antes de salvar.");
+        return;
+      }
+      const alerta = document.getElementById("alerta");
+      alerta.style.display = "flex"; 
+      const inputs = document.querySelectorAll('.input');
+      inputs.forEach(input => input.disabled = true);
+    }
+
+    document.getElementById("Sim").addEventListener("click", function () {
+      const inputs = document.querySelectorAll(".input");
+      inputs.forEach(input => input.disabled = true);
+      document.getElementById("alerta").style.display = "none"; 
+      alterado = false;
+    });
+
+    document.getElementById("Não").addEventListener("click", function () {
+      const inputs = document.querySelectorAll(".input");
+      inputs.forEach(input => input.disabled = false);
+      document.getElementById("alerta").style.display = "none";
+    });
+  </script>
+
+  <script>
+    document.getElementById("Sim").addEventListener("click", function () {
+      const numero = document.getElementById('Nu').value;
+      const titulo = document.getElementById('Ti').value;
+      const status = document.getElementById('St').value;
+      const nome = document.getElementById('No').value;
+      const categoria = document.getElementById('Ca').value;
+      const descricao = document.getElementById('De').value;
+
+      localStorage.setItem("numero_editado", numero);
+      localStorage.setItem("titulo_editado", titulo);
+      localStorage.setItem("status_editado", status);
+      localStorage.setItem("nome_editado", nome);
+      localStorage.setItem("categoria_editado", categoria);
+      localStorage.setItem("descricao_editado", descricao);
+      localStorage.setItem("confirmou_edicao", "true");
+
+      document.getElementById("alerta").style.display = "none";
+      alert("Alterações salvas com sucesso!");
+    });
+  </script>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      document.getElementById('Nu').value = localStorage.getItem("numero") || "";
+      document.getElementById('Ti').value = localStorage.getItem("titulo") || "";
+      document.getElementById('St').value = localStorage.getItem("status") || "";
+      document.getElementById('No').value = localStorage.getItem("nome") || "";
+      document.getElementById('Ca').value = localStorage.getItem("categoria") || "";
+      document.getElementById('De').value = localStorage.getItem("descricao") || "";
+    });
+  </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const nivel = localStorage.getItem("nivel");
+
+
+
+  if (nivel === "usuario") {
+    const btnAlterar = document.getElementById("btnAlterar");
+    const btnSalvar = document.getElementById("btnSalvar");
+    const inputs = document.querySelectorAll('.input');
+
+
+    if (btnAlterar) btnAlterar.style.display = "none";
+    if (btnSalvar) btnSalvar.style.display = "none";
+
+
+    inputs.forEach(input => input.disabled = true);
+  } 
+
+});
+</script>
+
+
+
+
+
+  <script src="meus-chamados.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
