@@ -64,14 +64,6 @@ const myChart = new Chart(ctx, {
     }
 });
 
-// Adicionar interatividade aos cards
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', function () {
-        const title = this.querySelector('.card-title').textContent.trim();
-        alert(`Você clicou em: ${title}`);
-    });
-});
-
 // Adicionar interatividade ao menu
 document.querySelectorAll('.menu-item').forEach(item => {
     item.addEventListener('click', function () {
